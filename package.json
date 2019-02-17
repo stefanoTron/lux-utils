@@ -21,7 +21,7 @@
         "test:watch": "npm run test -- --watchAll",
         "test:open": "npm run test && open coverage/lcov-report/index.html",
         "test:coveralls": "npm run test -- --coverageReporters=text-lcov | coveralls",
-        "spreversion": "npm run lint && npm run test",
+        "preversion": "npm run lint && npm run test",
         "version": "npm run build && npm run doc && npm run doc:latest",
         "postversion":
             "git add docs/ && git commit -am 'Documentation ${npm_package_version}' && git push --follow-tags"
