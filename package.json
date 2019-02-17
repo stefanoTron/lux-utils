@@ -1,6 +1,6 @@
 {
     "name": "lux-utils",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "JS library to validate and format common Luxembourgish administrative data.",
     "main": "dist/index.js",
     "license": "MIT",
@@ -23,8 +23,7 @@
         "test:coveralls": "npm run test -- --coverageReporters=text-lcov | coveralls",
         "preversion": "npm run lint && npm run test",
         "version": "npm run build && npm run doc && npm run doc:latest",
-        "postversion":
-            "git add docs/ && git commit -am 'Documentation ${npm_package_version}' && git push --follow-tags"
+        "postversion": "git add docs/ && git commit -am 'Documentation' && git push --follow-tags"
     },
     "devDependencies": {
         "babel-core": "6.*.*",
