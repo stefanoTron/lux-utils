@@ -1,0 +1,7 @@
+dist/
+docs/
+example/
+node_modules/
+src/**/*.test.js
+jest.config.js
+.jsdoc.json
