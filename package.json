@@ -1,9 +1,19 @@
 {
     "name": "lux-utils",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "JS library to validate and format common Luxembourgish administrative data.",
     "main": "dist/index.js",
     "license": "MIT",
+    "keywords": [
+        "luxembourg",
+        "lëtzebuerg",
+        "utils",
+        "administrative",
+        "administration"
+    ],
+    "engines": {
+        "node": ">=8"
+    },
     "scripts": {
         "build:esm": "parcel build src/index.js --no-minify --no-source-maps --out-file index.js",
         "build:umd": "parcel build src/index.js --global LuxUtils --out-file index.umd.js",
@@ -17,22 +27,21 @@
         "test:watch": "npm run test -- --watchAll",
         "test:open": "npm run test && open coverage/lcov-report/index.html",
         "test:coveralls": "npm run test -- --coverageReporters=text-lcov | coveralls",
-        "sspreversion": "npm run lint && npm run test",
+        "spreversion": "npm run lint && npm run test",
         "version": "npm run build && npm run doc && npm run doc:latest",
-        "postversion":
-            "git add docs/ && git commit -am 'Documentation ${npm_package_version}' && git push --follow-tags"
+        "postversion": "git add docs/ && git commit -am 'Documentation ${npm_package_version}' && git push --follow-tags"
     },
     "devDependencies": {
         "babel-core": "6.*.*",
         "babel-eslint": "10.*.*",
         "babel-preset-env": "1.*.*",
         "coveralls": "3.*.*",
-        "eslint": "5.*.*",
+        "eslint": "5.14.0",
         "eslint-config-airbnb-base": "13.*.*",
-        "eslint-plugin-import": "2.*.*",
-        "jest": "23.*.*",
+        "eslint-plugin-import": "2.16.0",
+        "jest": "24.1.0",
         "jsdoc": "3.*.*",
         "minami": "1.*.*",
-        "parcel-bundler": "1.*.*"
+        "parcel-bundler": "^1.11.0"
     }
 }
