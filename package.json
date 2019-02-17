@@ -4,13 +4,7 @@
     "description": "JS library to validate and format common Luxembourgish administrative data.",
     "main": "dist/index.js",
     "license": "MIT",
-    "keywords": [
-        "luxembourg",
-        "lëtzebuerg",
-        "utils",
-        "administrative",
-        "administration"
-    ],
+    "keywords": ["luxembourg", "lëtzebuerg", "utils", "administrative", "administration"],
     "engines": {
         "node": ">=8"
     },
@@ -29,7 +23,8 @@
         "test:coveralls": "npm run test -- --coverageReporters=text-lcov | coveralls",
         "spreversion": "npm run lint && npm run test",
         "version": "npm run build && npm run doc && npm run doc:latest",
-        "postversion": "git add docs/ && git commit -am 'Documentation ${npm_package_version}' && git push --follow-tags"
+        "postversion":
+            "git add docs/ && git commit -am 'Documentation ${npm_package_version}' && git push --follow-tags"
     },
     "devDependencies": {
         "babel-core": "6.*.*",
@@ -39,7 +34,7 @@
         "eslint": "5.14.0",
         "eslint-config-airbnb-base": "13.*.*",
         "eslint-plugin-import": "2.16.0",
-        "jest": "24.1.0",
+        "jest": "23.6.0",
         "jsdoc": "3.*.*",
         "minami": "1.*.*",
         "parcel-bundler": "^1.11.0"
