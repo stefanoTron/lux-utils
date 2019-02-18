@@ -7,7 +7,7 @@ JS library to validate and format common Luxembourgish administrative data.
 :bangbang: [Demo](https://codesandbox.io/s/92w1x0q3vw) :bangbang:
 
 
-[![Travis](https://img.shields.io/travis/littletower/lux-utils.svg?style=flat-square)]()
+[![Travis](https://img.shields.io/travis/com/littletower/lux-utils.svg?style=flat-square)]()
 [![Codecov](https://img.shields.io/codecov/c/github/littletower/lux-utils.svg?style=flat-square)]()
 [![npm](https://img.shields.io/npm/v/lux-utils.svg?style=flat-square)]()
 
