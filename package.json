@@ -28,7 +28,8 @@
         "test": "jest --config jest.config.json",
         "test:watch": "npm run test -- --watchAll",
         "test:open": "npm run test && open coverage/lcov-report/index.html",
-        "test:coveralls": "npm run test -- --coverageReporters=text-lcov | coveralls",
+        "test:codecov":
+            "npm run test -- --coverageReporters=lcov && codecov -t d924142f-461d-4081-a681-be48b67e0783",
         "version": "npm run build && npm run doc && npm run doc:latest",
         "postversion": "git add docs/ && git commit -am 'Documentation' && git push --follow-tags"
     },
@@ -44,5 +45,8 @@
         "jsdoc": "3.*.*",
         "minami": "1.*.*",
         "parcel-bundler": "^1.11.0"
+    },
+    "dependencies": {
+        "codecov": "3.2.0"
     }
 }

@@ -14,4 +14,4 @@ install:
 script:
   - npm run doc
   - npm run build
-  - npm run test:coveralls
+  - npm run test:codecov
