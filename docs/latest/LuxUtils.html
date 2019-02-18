@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="LuxUtils.html">LuxUtils</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateCodePostal">validateCodePostal</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateFixedPhone">validateFixedPhone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateFixedPhone">validateFixedPhone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateLicensePlate">validateLicensePlate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateMatricule">validateMatricule</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="LuxUtils.html">LuxUtils</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateCodePostal">validateCodePostal</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateFixedPhone">validateFixedPhone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateFixedPhoneWithPrefix">validateFixedPhoneWithPrefix</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateLicensePlate">validateLicensePlate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateMatricule">validateMatricule</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateMobilePhone">validateMobilePhone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateMobilePhoneWithPrefix">validateMobilePhoneWithPrefix</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validatePhone">validatePhone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validatePhoneWithPrefix">validatePhoneWithPrefix</a></span></li>
 </nav>
 
 <div id="main">
@@ -489,7 +489,7 @@
 <div class="section-examples">
 <h5>Example</h5>
 
-    <pre class="prettyprint"><code>// validate a postal code
+    <pre class="prettyprint"><code>// validate a fixed phone number
  let isValid = LuxUtils.validateFixedPhone(420288); //true;
  let isValid2 = LuxUtils.validateFixedPhone("44 12 34 22"); //true;
  let isValid3 = LuxUtils.validateFixedPhone("4444"); //false;</code></pre>
@@ -503,14 +503,14 @@
 
     
 
-    <h4 class="name" id=".validateFixedPhone"><span class="type-signature">(static) </span>validateFixedPhone<span class="signature">(fixedPhoneNumber)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    <h4 class="name" id=".validateFixedPhoneWithPrefix"><span class="type-signature">(static) </span>validateFixedPhoneWithPrefix<span class="signature">(fixedPhoneNumberWithPrefix)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Returns <code>true</code> if the fixed phone number is valid</p>
+    <p>Returns <code>true</code> if the fixed phone number with prefix is valid</p>
 </div>
 
 
@@ -546,7 +546,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="validateMobilePhone_index.js.html">validateMobilePhone/index.js</a>, <a href="validateMobilePhone_index.js.html#line1">line 1</a>
+        <a href="validateFixedPhoneWithPrefix_index.js.html">validateFixedPhoneWithPrefix/index.js</a>, <a href="validateFixedPhoneWithPrefix_index.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -590,16 +590,13 @@
 
         <tr>
             
-                <td class="name"><code>fixedPhoneNumber</code></td>
+                <td class="name"><code>fixedPhoneNumberWithPrefix</code></td>
             
 
             <td class="type">
             
                 
 <span class="param-type"><code>string</code></span>
-|
-
-<span class="param-type"><code>integer</code></span>
 
 
             
@@ -610,8 +607,7 @@
             
 
             <td class="description last">
-                <p>fixed phone number to validate. Can be a <code>string</code>
-or a <code>integer</code></p>
+                <p>fixed phone number with prefix to validate. Can be a <code>string</code></p>
                 
             </td>
         </tr>
@@ -663,10 +659,10 @@ or a <code>integer</code></p>
 <div class="section-examples">
 <h5>Example</h5>
 
-    <pre class="prettyprint"><code>// validate a postal code
- let isValid = LuxUtils.validateFixedPhone(420288); //true;
- let isValid2 = LuxUtils.validateFixedPhone("44 12 34 22"); //true;
- let isValid3 = LuxUtils.validateFixedPhone("4444"); //false;</code></pre>
+    <pre class="prettyprint"><code>// validate a fixed phone number
+ let isValid = LuxUtils.validateFixedPhoneWithPrefix(00352420288); //true;
+ let isValid2 = LuxUtils.validateFixedPhoneWithPrefix("+35244 12 34 22"); //true;
+ let isValid3 = LuxUtils.validateFixedPhoneWithPrefix("4444"); //false;</code></pre>
 
 </div>
 
@@ -1013,6 +1009,694 @@ or a <code>integer</code></p>
 
 </div>
         
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".validateMobilePhone"><span class="type-signature">(static) </span>validateMobilePhone<span class="signature">(mobilePhoneNumber)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Returns <code>true</code> if the mobile phone number is valid</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validateMobilePhone_index.js.html">validateMobilePhone/index.js</a>, <a href="validateMobilePhone_index.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>mobilePhoneNumber</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+|
+
+<span class="param-type"><code>integer</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>mobile phone number to validate. Can be a <code>string</code>
+or a <code>integer</code></p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>boolean</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <p><code>true</code> or <code>false</code></p>
+</div>
+
+    
+</div>
+
+
+
+<div class="section-examples">
+<h5>Example</h5>
+
+    <pre class="prettyprint"><code>// validate a postal code
+ let isValid = LuxUtils.validateMobilePhone(621123456); //true;
+ let isValid2 = LuxUtils.validateMobilePhone("621 12 34 56"); //true;
+ let isValid3 = LuxUtils.validateMobilePhone("4444"); //false;</code></pre>
+
+</div>
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".validateMobilePhoneWithPrefix"><span class="type-signature">(static) </span>validateMobilePhoneWithPrefix<span class="signature">(MobilePhoneNumberWithPrefix)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Returns <code>true</code> if the mobile phone number with prefix is valid</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validateMobilePhoneWithPrefix_index.js.html">validateMobilePhoneWithPrefix/index.js</a>, <a href="validateMobilePhoneWithPrefix_index.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>MobilePhoneNumberWithPrefix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>mobile phone number with prefix to validate. Can be a <code>string</code></p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>boolean</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <p><code>true</code> or <code>false</code></p>
+</div>
+
+    
+</div>
+
+
+
+<div class="section-examples">
+<h5>Example</h5>
+
+    <pre class="prettyprint"><code>// validate a Mobile phone number
+ let isValid = LuxUtils.validateMobilePhoneWithPrefix(00352621123456); //true;
+ let isValid2 = LuxUtils.validateMobilePhoneWithPrefix("+352 621 77 77 77"); //true;
+ let isValid3 = LuxUtils.validateMobilePhoneWithPrefix("4444"); //false;</code></pre>
+
+</div>
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".validatePhone"><span class="type-signature">(static) </span>validatePhone<span class="signature">(phoneNumber)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Returns <code>true</code> if the phone number is valid</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validatePhone_index.js.html">validatePhone/index.js</a>, <a href="validatePhone_index.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>phoneNumber</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+|
+
+<span class="param-type"><code>integer</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>phone number to validate. Can be a <code>string</code>
+or a <code>integer</code></p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>boolean</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <p><code>true</code> or <code>false</code></p>
+</div>
+
+    
+</div>
+
+
+
+<div class="section-examples">
+<h5>Example</h5>
+
+    <pre class="prettyprint"><code>// validate a phone number
+ let isValid = LuxUtils.validatePhone(621123456); //true;
+ let isValid2 = LuxUtils.validatePhone("444444"); //true;
+ let isValid3 = LuxUtils.validatePhone("4444"); //false;</code></pre>
+
+</div>
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".validatePhoneWithPrefix"><span class="type-signature">(static) </span>validatePhoneWithPrefix<span class="signature">(phoneNumber)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Returns <code>true</code> if the phone number with prefix is valid</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validatePhoneWithPrefix_index.js.html">validatePhoneWithPrefix/index.js</a>, <a href="validatePhoneWithPrefix_index.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>phoneNumber</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>phone number with prefix to validate. Can be a <code>string</code></p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>boolean</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <p><code>true</code> or <code>false</code></p>
+</div>
+
+    
+</div>
+
+
+
+<div class="section-examples">
+<h5>Example</h5>
+
+    <pre class="prettyprint"><code>// validate a phone number
+ let isValid = LuxUtils.validatePhone(00352621123456); //true;
+ let isValid2 = LuxUtils.validatePhone("+352444444"); //true;
+ let isValid3 = LuxUtils.validatePhone("4444"); //false;</code></pre>
+
+</div>
+
+</div>
+        
     
 
     
@@ -1030,7 +1714,7 @@ or a <code>integer</code></p>
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Feb 17 2019 22:52:23 GMT+0000 (WET) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Feb 18 2019 12:36:27 GMT+0000 (WET) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

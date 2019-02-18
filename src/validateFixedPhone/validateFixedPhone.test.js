@@ -51,3 +51,12 @@ test('validateFixedPhone "4502883333"', () => {
     const returnedValue = validateFixedPhone("45402883333");
     expect(returnedValue).toBe(false);
 });
+
+test('validateFixedPhone "azertyu"', () => {
+    const returnedValue = validateFixedPhone("azertyu");
+    expect(returnedValue).toBe(false);
+});
+test('validateFixedPhone null', () => {
+    const returnedValue = validateFixedPhone(null);
+    expect(returnedValue).toBe(false);
+});

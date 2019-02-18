@@ -131,9 +131,9 @@ var _default = function _default(matriculeToValidate) {
   if (matriculeToValidateString.length !== 13) return false;
   var strippedMatricule = parseInt(matriculeToValidateString.substr(0, 11), 10);
   var luhn = parseInt(matriculeToValidateString.substr(11, 1), 10);
+  if (!validateLuhn(strippedMatricule, luhn)) return false;
   var verhoeff = parseInt(matriculeToValidateString.substr(12, 1), 10);
   if (!validateVerhoeff(strippedMatricule, verhoeff)) return false;
-  if (!validateLuhn(strippedMatricule, luhn)) return false;
   return true;
 };
 
@@ -174,9 +174,11 @@ function calculateLuhn(digits) {
 
 
 function invArray(array) {
-  if (Object.prototype.toString.call(array) === '[object Number]') {
-    array = String(array);
-  }
+  if (Number.isInteger(array)
+  /* Object.prototype.toString.call(array) === '[object Number]' */
+  ) {
+      array = String(array);
+    }
 
   if (Object.prototype.toString.call(array) === '[object String]') {
     array = array.split('').map(Number);
@@ -258,15 +260,15 @@ exports.default = void 0;
 
  *
  * @example
- * // validate a postal code
+ * // validate a fixed phone number
  *  let isValid = LuxUtils.validateFixedPhone(420288); //true;
  *  let isValid2 = LuxUtils.validateFixedPhone("44 12 34 22"); //true;
  *  let isValid3 = LuxUtils.validateFixedPhone("4444"); //false;
  */
 var _default = function _default(fixedPhoneNumber) {
-  if (typeof fixedPhoneNumber === "string") {
-    //format: 440288 as a string
-    var strippedFixedPhoneNumber = fixedPhoneNumber.replace(/\s/g, "").replace(/-/g, "");
+  if (typeof fixedPhoneNumber === 'string') {
+    // format: 440288 as a string
+    var strippedFixedPhoneNumber = fixedPhoneNumber.replace(/\s/g, '').replace(/-/g, '');
 
     if (strippedFixedPhoneNumber.length >= 6 && strippedFixedPhoneNumber.length <= 8) {
       fixedPhoneNumber = parseInt(strippedFixedPhoneNumber);
@@ -277,7 +279,7 @@ var _default = function _default(fixedPhoneNumber) {
     } else {
       return false;
     }
-  } //format: 440288
+  } // format: 440288
 
 
   if (Number.isInteger(fixedPhoneNumber)) {
@@ -324,7 +326,6 @@ var _default = function _default(licensePlateToValidate) {
 
     if (isTwoLetters(twoFirstLetters)) {
       var rest = strippedLicensePlateToValidate.substr(2, strippedLicensePlateToValidate.length - 2);
-      console.log('test', rest);
 
       if (rest.length === 4 && /^\d+$/.test(rest)) {
         return true;

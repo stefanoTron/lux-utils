@@ -1,10 +1,19 @@
 {
     "name": "lux-utils",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "JS library to validate and format common Luxembourgish administrative data.",
     "main": "dist/index.js",
     "license": "MIT",
-    "keywords": ["luxembourg", "lëtzebuerg", "utils", "administrative", "administration"],
+    "keywords": [
+        "luxembourg",
+        "lëtzebuerg",
+        "utils",
+        "administrative",
+        "administration",
+        "matricule",
+        "telephone",
+        "mobile"
+    ],
     "engines": {
         "node": ">=8"
     },

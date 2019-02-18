@@ -23,3 +23,11 @@ test('validateMatricule notanInt', () => {
     const returnedValue = validateMatricule("notanInt");
     expect(returnedValue).toBe(false);
 });
+test('validateMatricule null', () => {
+    const returnedValue = validateMatricule(null);
+    expect(returnedValue).toBe(false);
+});
+test('validateMatricule 1893120105702', () => {
+    const returnedValue = validateMatricule(1893120105702);
+    expect(returnedValue).toBe(false);
+});

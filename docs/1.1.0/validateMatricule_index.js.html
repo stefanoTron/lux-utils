@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>validateMatricule/index.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="LuxUtils.html">LuxUtils</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateCodePostal">validateCodePostal</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateFixedPhone">validateFixedPhone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateFixedPhoneWithPrefix">validateFixedPhoneWithPrefix</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateLicensePlate">validateLicensePlate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateMatricule">validateMatricule</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateMobilePhone">validateMobilePhone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateMobilePhoneWithPrefix">validateMobilePhoneWithPrefix</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validatePhone">validatePhone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validatePhoneWithPrefix">validatePhoneWithPrefix</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">validateMatricule/index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @memberof LuxUtils
+ * @function validateMatricule
+ * @description Returns `true` if the matricule is valid
+ * @param {integer} matriculeToValidate matricule to validate
+ * @returns {boolean} `true` or `false`
+
+ *
+ * @example
+ * // validate a matricule
+ *  let isValid = LuxUtils.validateMatricule(1893120105732); //true;
+ *
+ */
+
+export default (matriculeToValidate) => {
+    if (!Number.isInteger(matriculeToValidate)) return false;
+    const matriculeToValidateString = matriculeToValidate.toString();
+    if (matriculeToValidateString.length !== 13) return false;
+
+    const strippedMatricule = parseInt(matriculeToValidateString.substr(0, 11), 10);
+
+    const luhn = parseInt(matriculeToValidateString.substr(11, 1), 10);
+    if (!validateLuhn(strippedMatricule, luhn)) return false;
+    const verhoeff = parseInt(matriculeToValidateString.substr(12, 1), 10);
+    if (!validateVerhoeff(strippedMatricule, verhoeff)) return false;
+
+    return true;
+};
+
+function validateVerhoeff(strippedMatricule, verhoeff) {
+    return generate(strippedMatricule) === verhoeff;
+}
+
+function validateLuhn(strippedMatricule, luhn) {
+    return calculateLuhn(strippedMatricule.toString()) === luhn;
+}
+
+const d = [
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    [1, 2, 3, 4, 0, 6, 7, 8, 9, 5],
+    [2, 3, 4, 0, 1, 7, 8, 9, 5, 6],
+    [3, 4, 0, 1, 2, 8, 9, 5, 6, 7],
+    [4, 0, 1, 2, 3, 9, 5, 6, 7, 8],
+    [5, 9, 8, 7, 6, 0, 4, 3, 2, 1],
+    [6, 5, 9, 8, 7, 1, 0, 4, 3, 2],
+    [7, 6, 5, 9, 8, 2, 1, 0, 4, 3],
+    [8, 7, 6, 5, 9, 3, 2, 1, 0, 4],
+    [9, 8, 7, 6, 5, 4, 3, 2, 1, 0],
+];
+
+// permutation table p
+const p = [
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    [1, 5, 7, 6, 2, 8, 3, 0, 9, 4],
+    [5, 8, 0, 3, 7, 9, 6, 1, 4, 2],
+    [8, 9, 1, 6, 0, 4, 3, 5, 2, 7],
+    [9, 4, 5, 3, 1, 2, 6, 8, 7, 0],
+    [4, 2, 8, 6, 5, 7, 3, 9, 0, 1],
+    [2, 7, 9, 3, 8, 0, 6, 4, 1, 5],
+    [7, 0, 4, 6, 9, 1, 3, 2, 5, 8],
+];
+
+const computed = [0, 2, 4, 6, 8, 1, 3, 5, 7, 9];
+// inverse table inv
+const inv = [0, 4, 3, 2, 1, 5, 6, 7, 8, 9];
+
+function sumLuhn(digits, even) {
+    let sum = 0,
+        digit = 0,
+        i = digits.length;
+
+    while (i--) {
+        digit = Number(digits[i]);
+        sum += (even = !even) ? computed[digit] : digit;
+    }
+
+    return sum;
+}
+
+function calculateLuhn(digits) {
+    const sum = sumLuhn(digits, false);
+    return (sum * 9) % 10;
+}
+
+// converts string or number to an array and inverts it
+function invArray(array) {
+    if (Number.isInteger(array) /* Object.prototype.toString.call(array) === '[object Number]' */) {
+        array = String(array);
+    }
+
+    if (Object.prototype.toString.call(array) === '[object String]') {
+        array = array.split('').map(Number);
+    }
+
+    return array.reverse();
+}
+
+// generates checksum
+function generate(array) {
+    let c = 0;
+    const invertedArray = invArray(array);
+
+    for (let i = 0; i &lt; invertedArray.length; i++) {
+        c = d[c][p[(i + 1) % 8][invertedArray[i]]];
+    }
+
+    return inv[c];
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Feb 18 2019 12:36:26 GMT+0000 (WET) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

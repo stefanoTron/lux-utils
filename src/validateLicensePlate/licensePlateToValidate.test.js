@@ -58,3 +58,7 @@ test('licensePlateToValidate 0000', () => {
     const returnedValue = licensePlateToValidate("0000");
     expect(returnedValue).toBe(true);
 });
+test('licensePlateToValidate null', () => {
+    const returnedValue = licensePlateToValidate(null);
+    expect(returnedValue).toBe(false);
+});

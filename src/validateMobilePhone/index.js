@@ -1,26 +1,26 @@
 /**
  * @memberof LuxUtils
- * @function validateFixedPhone
- * @description Returns `true` if the fixed phone number is valid
- * @param {(string|integer)}  fixedPhoneNumber  fixed phone number to validate. Can be a `string`
+ * @function validateMobilePhone
+ * @description Returns `true` if the mobile phone number is valid
+ * @param {(string|integer)}  mobilePhoneNumber  mobile phone number to validate. Can be a `string`
  * or a `integer`
  * @returns {boolean} `true` or `false`
 
  *
  * @example
  * // validate a postal code
- *  let isValid = LuxUtils.validateFixedPhone(420288); //true;
- *  let isValid2 = LuxUtils.validateFixedPhone("44 12 34 22"); //true;
- *  let isValid3 = LuxUtils.validateFixedPhone("4444"); //false;
+ *  let isValid = LuxUtils.validateMobilePhone(621123456); //true;
+ *  let isValid2 = LuxUtils.validateMobilePhone("621 12 34 56"); //true;
+ *  let isValid3 = LuxUtils.validateMobilePhone("4444"); //false;
  */
 
-export default (fixedPhoneNumber) => {
-    if (typeof fixedPhoneNumber === 'string') {
-        // format: 440288 as a string
-        const strippedFixedPhoneNumber = fixedPhoneNumber.replace(/\s/g, '').replace(/-/g, '');
-        if (strippedFixedPhoneNumber.length >= 6 && strippedFixedPhoneNumber.length <= 8) {
-            fixedPhoneNumber = parseInt(strippedFixedPhoneNumber, 10);
-            if (Number.isNaN(fixedPhoneNumber)) {
+export default (mobilePhoneNumber) => {
+    if (typeof mobilePhoneNumber === 'string') {
+        // format: 621123456 as a string
+        const strippedmobilePhoneNumber = mobilePhoneNumber.replace(/\s/g, '').replace(/-/g, '');
+        if (strippedmobilePhoneNumber.length === 9) {
+            mobilePhoneNumber = parseInt(strippedmobilePhoneNumber, 10);
+            if (Number.isNaN(mobilePhoneNumber)) {
                 return false;
             }
         } else {
@@ -28,9 +28,9 @@ export default (fixedPhoneNumber) => {
         }
     }
 
-    // format: 440288
-    if (Number.isInteger(fixedPhoneNumber)) {
-        return fixedPhoneNumber > 99999 && fixedPhoneNumber <= 99999999;
+    // format: 621123456
+    if (Number.isInteger(mobilePhoneNumber)) {
+        return mobilePhoneNumber > 600000000 && mobilePhoneNumber <= 699999999;
     }
 
     return false;

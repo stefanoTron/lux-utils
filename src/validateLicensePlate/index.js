@@ -32,7 +32,6 @@ export default (licensePlateToValidate) => {
                 2,
                 strippedLicensePlateToValidate.length - 2,
             );
-            console.log('test', rest);
             if (rest.length === 4 && /^\d+$/.test(rest)) {
                 return true;
             }

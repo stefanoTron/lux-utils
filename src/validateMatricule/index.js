@@ -18,11 +18,11 @@ export default (matriculeToValidate) => {
     if (matriculeToValidateString.length !== 13) return false;
 
     const strippedMatricule = parseInt(matriculeToValidateString.substr(0, 11), 10);
-    const luhn = parseInt(matriculeToValidateString.substr(11, 1), 10);
-    const verhoeff = parseInt(matriculeToValidateString.substr(12, 1), 10);
 
-    if (!validateVerhoeff(strippedMatricule, verhoeff)) return false;
+    const luhn = parseInt(matriculeToValidateString.substr(11, 1), 10);
     if (!validateLuhn(strippedMatricule, luhn)) return false;
+    const verhoeff = parseInt(matriculeToValidateString.substr(12, 1), 10);
+    if (!validateVerhoeff(strippedMatricule, verhoeff)) return false;
 
     return true;
 };
@@ -84,7 +84,7 @@ function calculateLuhn(digits) {
 
 // converts string or number to an array and inverts it
 function invArray(array) {
-    if (Object.prototype.toString.call(array) === '[object Number]') {
+    if (Number.isInteger(array) /* Object.prototype.toString.call(array) === '[object Number]' */) {
         array = String(array);
     }
 

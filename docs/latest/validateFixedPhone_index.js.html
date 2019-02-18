@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="LuxUtils.html">LuxUtils</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateCodePostal">validateCodePostal</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateFixedPhone">validateFixedPhone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateFixedPhone">validateFixedPhone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateLicensePlate">validateLicensePlate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateMatricule">validateMatricule</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="LuxUtils.html">LuxUtils</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateCodePostal">validateCodePostal</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateFixedPhone">validateFixedPhone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateFixedPhoneWithPrefix">validateFixedPhoneWithPrefix</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateLicensePlate">validateLicensePlate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateMatricule">validateMatricule</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateMobilePhone">validateMobilePhone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validateMobilePhoneWithPrefix">validateMobilePhoneWithPrefix</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validatePhone">validatePhone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="LuxUtils.html#.validatePhoneWithPrefix">validatePhoneWithPrefix</a></span></li>
 </nav>
 
 <div id="main">
@@ -48,37 +48,32 @@
 
  *
  * @example
- * // validate a postal code
+ * // validate a fixed phone number
  *  let isValid = LuxUtils.validateFixedPhone(420288); //true;
  *  let isValid2 = LuxUtils.validateFixedPhone("44 12 34 22"); //true;
  *  let isValid3 = LuxUtils.validateFixedPhone("4444"); //false;
  */
 
-export default fixedPhoneNumber => {
-  if (typeof fixedPhoneNumber === "string") {
-    //format: 440288 as a string
-    let strippedFixedPhoneNumber = fixedPhoneNumber
-      .replace(/\s/g, "")
-      .replace(/-/g, "");
-    if (
-      strippedFixedPhoneNumber.length >= 6 &amp;&amp;
-      strippedFixedPhoneNumber.length &lt;= 8
-    ) {
-      fixedPhoneNumber = parseInt(strippedFixedPhoneNumber);
-      if (isNaN(fixedPhoneNumber)) {
-        return false;
-      }
-    } else {
-      return false;
+export default (fixedPhoneNumber) => {
+    if (typeof fixedPhoneNumber === 'string') {
+        // format: 440288 as a string
+        const strippedFixedPhoneNumber = fixedPhoneNumber.replace(/\s/g, '').replace(/-/g, '');
+        if (strippedFixedPhoneNumber.length >= 6 &amp;&amp; strippedFixedPhoneNumber.length &lt;= 8) {
+            fixedPhoneNumber = parseInt(strippedFixedPhoneNumber);
+            if (isNaN(fixedPhoneNumber)) {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
-  }
 
-  //format: 440288
-  if (Number.isInteger(fixedPhoneNumber)) {
-    return fixedPhoneNumber > 99999 &amp;&amp; fixedPhoneNumber &lt;= 99999999;
-  }
+    // format: 440288
+    if (Number.isInteger(fixedPhoneNumber)) {
+        return fixedPhoneNumber > 99999 &amp;&amp; fixedPhoneNumber &lt;= 99999999;
+    }
 
-  return false;
+    return false;
 };
 </code></pre>
         </article>
@@ -92,7 +87,7 @@ export default fixedPhoneNumber => {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Feb 17 2019 22:52:23 GMT+0000 (WET) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Feb 18 2019 12:36:27 GMT+0000 (WET) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
