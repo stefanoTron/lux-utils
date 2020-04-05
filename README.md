@@ -20,7 +20,7 @@ JS library to validate and format common Luxembourgish administrative data.
 
 - **_0 dependencies_**
 
-- **_lightweight 1.4kB (minified + gzipped)_**
+- **_lightweight_**
 
 ## Installation
 
