@@ -1,6 +1,6 @@
 {
   "name": "lux-utils",
-  "version": "2.0.0",
+  "version": "0.0.0-development",
   "description": "JS library to validate and format common Luxembourgish administrative data.",
   "keywords": [
     "luxembourg",
@@ -18,6 +18,9 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "url": "https://github.com/stefanoTron/lux-utils"
+  },
   "author": "Stefano Tron <stefano.tron@gmail.com>",
   "license": "MIT",
   "engines": {

@@ -48,7 +48,7 @@ const d = [
   [6, 5, 9, 8, 7, 1, 0, 4, 3, 2],
   [7, 6, 5, 9, 8, 2, 1, 0, 4, 3],
   [8, 7, 6, 5, 9, 3, 2, 1, 0, 4],
-  [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+  [9, 8, 7, 6, 5, 4, 3, 2, 1, 0],
 ]
 
 /**
@@ -62,7 +62,7 @@ const p = [
   [9, 4, 5, 3, 1, 2, 6, 8, 7, 0],
   [4, 2, 8, 6, 5, 7, 3, 9, 0, 1],
   [2, 7, 9, 3, 8, 0, 6, 4, 1, 5],
-  [7, 0, 4, 6, 9, 1, 3, 2, 5, 8]
+  [7, 0, 4, 6, 9, 1, 3, 2, 5, 8],
 ]
 /**
  * @ignore
@@ -76,12 +76,13 @@ const inv = [0, 4, 3, 2, 1, 5, 6, 7, 8, 9]
  * @ignore
  */
 function sumLuhn(digits: string, even: Boolean) {
-  let sum = 0,
-    digit = 0,
-    i = digits.length
+  let sum = 0
+  let digit = 0
+  let i = digits.length
 
   while (i--) {
     digit = Number(digits[i])
+    // tslint:disable-next-line: no-conditional-assignment
     sum += (even = !even) ? computed[digit] : digit
   }
 
@@ -103,7 +104,7 @@ function invArray(array: number) {
   /*if (Object.prototype.toString.call(array) === '[object String]') {
     array = array.split('').map(Number)
   }*/
-  const intArr = `${array}`.split('').map(x => Number(x))
+  const intArr = `${array}`.split('').map((x) => Number(x))
 
   return intArr.reverse()
 }
