@@ -15,9 +15,9 @@ if (typeof pkg.repository === 'object') {
 
 let parsedUrl = url.parse(repoUrl)
 let repository = (parsedUrl.host || '') + (parsedUrl.path || '')
-let ghToken = process.env.GH_TOKEN
+let ghToken = process.env.GH_TOKEN || '7c29b974b7a607f2bebbdd643855a29e2b67ca0a'
 
-echo('Deploying docs!!!')
+echo('Deploying docs!!!' + ' ' + repository)
 cd('docs')
 touch('.nojekyll')
 exec('git init')
